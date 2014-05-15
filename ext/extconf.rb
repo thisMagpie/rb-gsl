@@ -11,14 +11,14 @@ module GSL
     def inspect; @str; end
     def >=(ver)
       ary2 = ver.split(".").collect { |elm| elm.to_i }
-      if @ary[0] > ary2[0]; return true; end			
+      if @ary[0] > ary2[0]; return true; end
       if @ary[0] < ary2[0]; return false; end
       if @ary[1] > ary2[1]; return true; end
       if @ary[1] < ary2[1]; return false; end
       if @ary.size < ary2.size; return false; end
       if @ary.size == 3 and ary2.size == 3
         if @ary[2] < ary2[2]; return false; end
-      end		
+      end
       return true
     end
     def <(ver)
@@ -256,7 +256,6 @@ end
 have_narray_h = have_header("narray.h")
 if narray_config
   if RUBY_PLATFORM =~ /cygwin|mingw/
-#    have_library("narray") || raise("ERROR: narray import library is not found") 
   have_library("narray")
   end
 end
@@ -282,9 +281,6 @@ tamu_anova_config = dir_config('tamu_anova',$sitearchdir,$sitearchdir)
 have_tamu_anova_h = have_header("tamu_anova/tamu_anova.h")
 if tamu_anova_config
   have_library("tamuanova")
-#  if RUBY_PLATFORM =~ /cygwin|mingw/
-#    have_library("tamuanova") || raise("ERROR: tamu_anova import library is not found")
-#  end
 end
 
 File.open("../lib/gsl.rb", "w") do |file|
