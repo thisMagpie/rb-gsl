@@ -19,7 +19,6 @@ Gem::Specification.new do |gem|
   gem.required_ruby_version = '>= 1.8.1'
 
   gem.add_dependency 'nmatrix', "> 0.0.9"
-  # gem.add_dependency 'narray', '>= 0.5.9'
 
   gem.has_rdoc = true
   gem.rdoc_options = [
@@ -29,8 +28,6 @@ Gem::Specification.new do |gem|
       '--exclude', 'include/',
       '--exclude', 'lib/',
     ]
-  #gem.extra_rdoc_files = FileList['rdoc/*'].to_a
-
 
 end
 

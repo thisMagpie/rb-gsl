@@ -143,7 +143,7 @@ static VALUE rb_gsl_poly_eval_singleton(VALUE klass, VALUE a, VALUE x)
     } else if (rb_obj_is_kind_of(x, cgsl_matrix)) {
       Data_Get_Struct(x, gsl_matrix, mx);
       mnew = gsl_matrix_alloc(mx->size1, mx->size2);
-      val = Data_Wrap_Struct(cgsl_matrix, 0, gsl_matrix_free, mnew);      
+      val = Data_Wrap_Struct(cgsl_matrix, 0, gsl_matrix_free, mnew)
       n = mx->size1*mx->size2;
       ptr1 = mx->data;
       ptr2 = mnew->data;
