@@ -1,6 +1,5 @@
 require 'mkmf'
 
-
 module GSL
   class Version
     def initialize(str)
@@ -43,7 +42,7 @@ def gsl_config()
     puts(cflags)
     $CFLAGS += " " + cflags
   end
-  
+
   IO.popen("#{GSL_CONFIG} --libs") do |f|
     libs = f.gets.chomp
     dir_config("cblas")
@@ -63,7 +62,7 @@ def gsl_config()
 end
 
 def check_version(configfile)
-  
+
   print("checking gsl version... ")
   IO.popen("#{GSL_CONFIG} --version") do |f|
     ver = GSL::Version.new(f.gets.chomp)
@@ -205,7 +204,7 @@ begin
   end
 
   RUBY_VERSION2 = GSL::Version.new(RUBY_VERSION)
-  
+
   puts("checking ruby version... #{RUBY_VERSION2}")
   if RUBY_VERSION2 >= "1.8"
     RB_GSL_CONFIG.printf("#ifndef RUBY_1_8_LATER\n#define RUBY_1_8_LATER\n#endif\n")
